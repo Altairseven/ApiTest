@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreApi", "NetCoreApi\NetCoreApi.csproj", "{391BC718-6870-4F68-962E-3B53E2095877}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApi", "RestApi\RestApi.csproj", "{22A1FBF2-1195-48CB-AD31-7ECF21179354}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApi2", "RestApi2\RestApi2.csproj", "{C9CFC904-7D47-41B2-8865-25542F866016}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{391BC718-6870-4F68-962E-3B53E2095877}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{391BC718-6870-4F68-962E-3B53E2095877}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{391BC718-6870-4F68-962E-3B53E2095877}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{391BC718-6870-4F68-962E-3B53E2095877}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A1FBF2-1195-48CB-AD31-7ECF21179354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A1FBF2-1195-48CB-AD31-7ECF21179354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A1FBF2-1195-48CB-AD31-7ECF21179354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A1FBF2-1195-48CB-AD31-7ECF21179354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9CFC904-7D47-41B2-8865-25542F866016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9CFC904-7D47-41B2-8865-25542F866016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9CFC904-7D47-41B2-8865-25542F866016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9CFC904-7D47-41B2-8865-25542F866016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
