@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using RestApi.Entidades;
 using RestApi.Models;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RestApi.Controllers
 {
@@ -19,8 +20,8 @@ namespace RestApi.Controllers
             _db = db;
         }
 
+        [Authorize]
         [HttpGet("{id=0}")]
-        
         public IEnumerable<Localidades> Get([FromQuery]decimal id) {
             List<Localidades> listita = _db.Localidades.ToList();
             if (id != 0)

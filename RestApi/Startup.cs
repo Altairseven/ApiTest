@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace RestApi
 {
@@ -29,15 +32,9 @@ namespace RestApi
         {
             
             services.AddDbContext<Models.ArcDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ArcDB")));
-            //services.AddCors(o => o.AddPolicy("MyPolicy", builder => {
-            //    builder.AllowAnyOrigin()
-            //           .AllowAnyMethod()
-            //           .AllowAnyHeader();
-            //}));
+            services.AddDbContext<ProyectoresModel.ProyectoresDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProyectoresDB")));
 
-            // ********************
             // Setup CORS
-            // ********************
             var corsBuilder = new CorsPolicyBuilder();
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();
@@ -48,6 +45,26 @@ namespace RestApi
             services.AddCors(options => {
                 options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
             });
+
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options => {
+                        options.TokenValidationParameters = new TokenValidationParameters {
+                            ValidateIssuer = true,
+                            ValidateAudience = true,
+                            ValidateLifetime = true,
+                            ValidateIssuerSigningKey = true,
+                            ValidIssuer = "ArcLan/api",
+                            ValidAudience = "ArclanAngularApp",
+                            IssuerSigningKey = new SymmetricSecurityKey(
+                                Encoding.UTF8.GetBytes("Sentis que la wea entra re potente y poderosa"))
+                        };
+                    });
+
+
+
+
+
             services.AddMvc();
             services.Configure<MvcOptions>(options =>
             {
@@ -66,6 +83,7 @@ namespace RestApi
             //app.UseCors(builder => builder.WithOrigins("http://localhost:4200"));
             //app.UseCors("MyPolicy");
             app.UseCors("SiteCorsPolicy");
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

@@ -1,1 +1,15 @@
-﻿Scaffold-DbContext "Data Source=franco-rog\\altairsql;Initial Catalog=ArcDB;Persist Security Info=True;User ID=arcdbuser;Password=hipermegared" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force
+﻿Scaffold-DbContext -Context "ArcDbContext" "Data Source=franco-rog\altairsql;Initial Catalog=ArcDB;Persist Security Info=True;User ID=arcdbuser;Password=hipermegared" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force
+
+
+ public ArcDbContext(DbContextOptions<ArcDbContext> options) : base(options) { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+        }
+
+
+
+
+Scaffold-DbContext -Context "ProyectoresDbContext" "Data Source=franco-rog\altairsql;Initial Catalog=Proyectores;Persist Security Info=True;User ID=Proyectores;Password=hipermegared" Microsoft.EntityFrameworkCore.SqlServer -OutputDir ProyectoresModel -Force
+
+
